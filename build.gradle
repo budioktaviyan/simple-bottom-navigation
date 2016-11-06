@@ -1,0 +1,30 @@
+buildscript {
+    ext {
+        androidPluginVersion = '2.2.2'
+        neenbedanktVersion = '1.8'
+        androidSupportVersion = '25.0.0'
+        multidexVersion = '1.0.1'
+        butterKnifeVersion = '8.4.0'
+    }
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath("com.android.tools.build:gradle:${androidPluginVersion}")
+        classpath("com.neenbedankt.gradle.plugins:android-apt:${neenbedanktVersion}")
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.1'
+}
